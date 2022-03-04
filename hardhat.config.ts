@@ -18,18 +18,13 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
-
 const config: HardhatUserConfig = {
-  solidity: "0.8.4",
+  solidity: "0.6.2",
   networks: {
     rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${
-        process.env.RINKEBY_INFURA_KEY ?? ""
-      }`,
-      accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+      chainId: 4,
+      url: "https://rinkeby.infura.io/v3/c64ac40185334a5e84af8368cc863671 ",
+      accounts: [process.env.PRIVATE_KEY!, process.env.PRIVATE_KEY_2!] || [],
       gasPrice: 8000000000,
       gas: 2100000,
     },

@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
     "target": "es2018",
+    "typeRoots": ["./types", "./node_modules/@types"],
     "module": "commonjs",
-    "strict": false,
+    "strict": true,
     "baseUrl": "./",
     "esModuleInterop": true,
     "outDir": "dist",
     "declaration": true,
     "paths": {
       "*": ["types/*"]
-    }
+    },
+    "types": []
   },
   "include": ["./scripts", "./test", "./typechain"],
+  "exclude": ["./types"],
   "files": ["./hardhat.config.ts"]
 }

@@ -4,20 +4,13 @@
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
 import { ethers } from "hardhat";
+import { BICONOMY_ERC_FORWARDER } from "../constants/index";
 
 async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
-
-  // We get the contract to deploy
   const ERC20Factory = await ethers.getContractFactory(
     "contracts/ERC20MetaTransaction.sol:ERC20MetaTransaction"
   );
-  const contract = await ERC20Factory.deploy();
+  const contract = await ERC20Factory.deploy(BICONOMY_ERC_FORWARDER);
 
   await contract.deployed();
 
