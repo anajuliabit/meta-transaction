@@ -23,10 +23,17 @@ const config: HardhatUserConfig = {
   networks: {
     rinkeby: {
       chainId: 4,
-      url: "https://rinkeby.infura.io/v3/c64ac40185334a5e84af8368cc863671 ",
+      url: `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`,
       accounts: [process.env.PRIVATE_KEY!, process.env.PRIVATE_KEY_2!] || [],
       gasPrice: 8000000000,
-      gas: 2100000,
+      gas: 21000000,
+    },
+    kovan: {
+      chainId: 42,
+      url: `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      accounts: [process.env.PRIVATE_KEY!, process.env.PRIVATE_KEY_2!] || [],
+      gasPrice: 8000000000,
+      gas: 21000000,
     },
   },
   gasReporter: {
@@ -34,7 +41,9 @@ const config: HardhatUserConfig = {
     currency: "USD",
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: {
+      rinkeby: process.env.ETHERSCAN_API_KEY,
+    },
   },
 };
 

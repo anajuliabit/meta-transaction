@@ -4,7 +4,7 @@
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
 import { ethers } from "hardhat";
-import { BICONOMY_ERC_FORWARDER } from "../constants/index";
+import { BICONOMY_ERC_FORWARDER } from "../constants";
 
 async function main() {
   const ERC20Factory = await ethers.getContractFactory(

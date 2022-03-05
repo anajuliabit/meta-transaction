@@ -1,3 +1,6 @@
+// eslint-disable-next-line node/no-unpublished-import
+import { Web3Provider } from "@ethersproject/providers";
+
 type IRequest = {
   batchId: number;
   batchNonce: number;
@@ -27,12 +30,15 @@ declare module "@biconomy/mexa" {
 
     getSignerByAddress(address: string): any;
 
-    getForwardRequestAndMessageToSign(tx: string): {
+    getForwardRequestAndMessageToSign(
+      tx: string,
+      tokenAddress: string
+    ): {
       eip712Format: any;
       request: IRequest;
     };
 
-    getEthersProvider(): any;
+    getEthersProvider(): Web3Provider;
 
     isReady(): boolean;
   }
