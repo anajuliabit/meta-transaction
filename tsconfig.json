@@ -3,6 +3,7 @@
     "target": "es2018",
     "typeRoots": ["./types", "./node_modules/@types"],
     "module": "commonjs",
+    "resolveJsonModule": true,
     "strict": true,
     "baseUrl": "./",
     "esModuleInterop": true,
